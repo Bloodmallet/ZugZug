@@ -17,6 +17,7 @@ ticket system, to finally remove the original data from the source.
     better to fail/crash than to harm the ticket system.
 - Never exceed an externally provided maximum runtime duration.
 - Configurations will be provided via environment variables.
+- Exit with 0 on success. Exit with 1 on failure.
 
 
 ## Data Flow
