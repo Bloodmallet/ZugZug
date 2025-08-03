@@ -3,7 +3,7 @@
     "ShitShovela": {
       "commandName": "Project",
       "environmentVariables": {
-        "DURATION_MINUTES": "32m"
+        "DURATION_MINUTES": "10"
       }
     },
     "Container (Dockerfile)": {
