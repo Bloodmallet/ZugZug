@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using ShitShovela;
+
+internal class Program
+{
+    private async static Task<int> Main( string[] args )
+    {
+        Console.WriteLine( "Hello, World!" );
+
+        Configuration config = new Configuration();
+
+        return 0;
+    }
+}
