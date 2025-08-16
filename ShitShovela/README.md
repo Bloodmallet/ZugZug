@@ -71,3 +71,12 @@ sequenceDiagram
 
 `console-app` does not have a persistent data storage (db/s3/mount) to reduce 
 its complexity by reducing the number of components.
+
+
+## Configuration experiment
+
+How obnoxious would it be, if any module/component/namespace would define its own configuration class?
+
+Something like `abstract BaseConfig` -> `ModuleConfig` -> added to `Config`.
+
+Or rather, to not double up on env methods, an env wrapper class would help.

@@ -1,4 +1,5 @@
 ﻿using ShitShovela;
+using ShitShovela.Configuration;
 
 internal class Program
 {

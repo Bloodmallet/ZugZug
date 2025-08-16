@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace ShitShovela
+namespace ShitShovela.Configuration
 {
     internal class Configuration
     {
@@ -18,7 +18,7 @@ namespace ShitShovela
             string duration_minutes = Environment.GetEnvironmentVariable( "DURATION_MINUTES" ) ?? "10";
             try
             {
-                Int32 parsed_duration_minutes = Int32.Parse( duration_minutes );
+                int parsed_duration_minutes = int.Parse( duration_minutes );
                 if ( parsed_duration_minutes < 1 )
                 {
                     throw new ArgumentOutOfRangeException( "Environment variable DURATION_MINUTES must be a positive Int32." );
@@ -39,7 +39,7 @@ namespace ShitShovela
             try
             {
                 float parsed_duration_buffer_fraction = float.Parse( duration_buffer_fraction, CultureInfo.InvariantCulture );
-                if ( ( parsed_duration_buffer_fraction <= 0.0 ) || ( 1.0 <= parsed_duration_buffer_fraction ) )
+                if ( parsed_duration_buffer_fraction <= 0.0 || 1.0 <= parsed_duration_buffer_fraction )
                 {
                     throw new ArgumentOutOfRangeException( "Environment variable DURATION_BUFFER_FRACTION must be a float between 0.0 and 1.0 excluding both ends." );
                 }
