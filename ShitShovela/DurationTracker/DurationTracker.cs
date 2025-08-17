@@ -1,4 +1,4 @@
-﻿namespace ShitShovela
+﻿namespace ShitShovela.DurationTracker
 {
     internal class DurationTracker
     {
@@ -10,13 +10,11 @@
         /// Maximum allowed duration of the program.
         /// </summary>
         internal readonly TimeSpan MaxRuntimeDuration;
-        private readonly Configuration _configuration;
 
         internal DurationTracker( Configuration configuration )
         {
             StartTime = DateTimeOffset.Now;
-            _configuration = configuration;
-            MaxRuntimeDuration = _configuration.MaxDuration * _configuration.DurationFraction;
+            MaxRuntimeDuration = configuration.TimeBetweenStarts * configuration.DurationFraction;
         }
 
         /// <summary>

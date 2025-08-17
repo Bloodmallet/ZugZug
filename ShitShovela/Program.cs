@@ -1,5 +1,4 @@
-﻿using ShitShovela;
-using ShitShovela.Configuration;
+﻿using ShitShovela.DurationTracker;
 
 internal class Program
 {
@@ -7,12 +6,15 @@ internal class Program
     {
         Console.WriteLine( "Starting" );
 
-        Configuration config = new Configuration();
-
-        DurationTracker tracker = new DurationTracker( config );
+        var configuration = new ShitShovela.Configuration.ProgramConfiguration.ConfigurationFactory().Get();
+        var tracker = new DurationTracker( configuration.DurationTracker );
         tracker.ExitOnOvertime();
 
-        Console.WriteLine( "Finished processing" );
+        Console.WriteLine( tracker.MaxRuntimeDuration );
+        Console.WriteLine( configuration.DurationTracker.TimeBetweenStarts );
+        Console.WriteLine( configuration.DurationTracker.DurationFraction );
+
+        Console.WriteLine( "Finished" );
         return 0;
     }
 }

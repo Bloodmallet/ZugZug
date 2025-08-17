@@ -3,7 +3,8 @@
     "ShitShovela": {
       "commandName": "Project",
       "environmentVariables": {
-        "DURATION_MINUTES": "10"
+        "SHITSHOVELA_DURATIONTRACKER_MINUTES_BETWEEN_STARTS": "3",
+        "SHITSHOVELA_DURATIONTRACKER_DURATION_FRACTION": "0.6"
       }
     },
     "Container (Dockerfile)": {

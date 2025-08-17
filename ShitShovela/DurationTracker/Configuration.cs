@@ -1,0 +1,39 @@
+﻿namespace ShitShovela.DurationTracker
+{
+    internal class Configuration
+    {
+        /// <summary>
+        /// How much time passes between program starts.
+        /// </summary>
+        internal readonly TimeSpan TimeBetweenStarts = new TimeSpan( hours: 0, minutes: 10, seconds: 0 );
+        /// <summary>
+        /// Fraction of TimeBetweenStarts the program is allowed to utilize.
+        /// </summary>
+        internal readonly float DurationFraction = 0.9f;
+
+        private void ValidateTimeBetweenStarts( TimeSpan? timeBetweenStarts )
+        {
+            if ( timeBetweenStarts != null && timeBetweenStarts < TimeSpan.Zero )
+            {
+                throw new ArgumentOutOfRangeException( "DurationTracker timeBetweenStarts must be set to a value greater than zero." );
+            }
+        }
+
+        private void ValidateDurationFraction( float? durationFraction )
+        {
+            if ( durationFraction != null && ( durationFraction <= 0.0f || 1.0f <= durationFraction ) )
+            {
+                throw new ArgumentOutOfRangeException( "DurationTracker durationFraction must be set to a float between 0.0 and 1.0 excluding both ends." );
+            }
+        }
+
+        internal Configuration( TimeSpan? timeBetweenStarts, float? durationFraction )
+        {
+            ValidateTimeBetweenStarts( timeBetweenStarts );
+            TimeBetweenStarts = timeBetweenStarts ?? TimeBetweenStarts;
+
+            ValidateDurationFraction( durationFraction );
+            DurationFraction = durationFraction ?? DurationFraction;
+        }
+    }
+}
