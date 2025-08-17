@@ -27,6 +27,17 @@
             }
         }
 
+        /// <summary>
+        /// I'd like to get rid of this wiring.
+        /// - parameter names are just field names with a lowercase starting character
+        /// - parameter types are just field types with nullability
+        /// - optionally some "Validate<FIELD>" method is implemented and called before assignment
+        /// - if parameter value is null, stick to the default field value
+        /// 
+        /// But how do I make this dynamic in c#?
+        /// </summary>
+        /// <param name="timeBetweenStarts"></param>
+        /// <param name="durationFraction"></param>
         internal Configuration( TimeSpan? timeBetweenStarts, float? durationFraction )
         {
             ValidateTimeBetweenStarts( timeBetweenStarts );

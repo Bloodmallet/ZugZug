@@ -1,5 +1,10 @@
 ﻿namespace ShitShovela.DurationTracker
 {
+    /// <summary>
+    /// I'd like to get rid of this wiring. 
+    /// - Environment Variable names are class properties/fields converted from upper CamelCase to upper SNAKE_CASE.
+    /// - Types can either be mapped to matching methods, or get looked up by name "Get<TYPE>"
+    /// </summary>
     internal class ConfigurationFactory : ShitShovela.Configuration.Base.ConfigurationFactory
     {
         internal Configuration Get()
