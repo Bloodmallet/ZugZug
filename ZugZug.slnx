@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Configuration/Configuration.csproj" />
+  <Project Path="ShitShovela/ShitShovela.csproj" />
+</Solution>
