@@ -1,7 +1,6 @@
-﻿namespace Configuration
-{
-    public class Class1
-    {
+﻿namespace Configuration;
 
-    }
+public class Class1
+{
+
 }
