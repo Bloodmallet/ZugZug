@@ -5,7 +5,7 @@
         /// <summary>
         /// How much time passes between program starts.
         /// </summary>
-        internal readonly TimeSpan TimeBetweenStarts = new TimeSpan( hours: 0, minutes: 10, seconds: 0 );
+        internal readonly TimeSpan TimeBetweenStarts = new( hours: 0, minutes: 10, seconds: 0 );
         /// <summary>
         /// Fraction of TimeBetweenStarts the program is allowed to utilize.
         /// </summary>
@@ -21,7 +21,7 @@
 
         private void ValidateDurationFraction( float? durationFraction )
         {
-            if ( durationFraction != null && ( durationFraction <= 0.0f || 1.0f <= durationFraction ) )
+            if ( durationFraction is not null and ( <= 0.0f or >= 1.0f ) )
             {
                 throw new ArgumentOutOfRangeException( "DurationTracker durationFraction must be set to a float between 0.0 and 1.0 excluding both ends." );
             }

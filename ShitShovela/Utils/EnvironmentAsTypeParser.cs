@@ -18,19 +18,14 @@ namespace ShitShovela.Utils
 
             Console.WriteLine( $"Reading environment variable '{key}'." );
 
-            var value = Environment.GetEnvironmentVariable( key );
+            string? value = Environment.GetEnvironmentVariable( key );
 
-            if ( string.IsNullOrWhiteSpace( value ) )
-            {
-                return null;
-            }
-
-            return value;
+            return string.IsNullOrWhiteSpace( value ) ? null : value;
         }
 
         internal static float? GetFloat( string key )
         {
-            var value = GetString( key );
+            string? value = GetString( key );
             if ( value == null )
             {
                 return null;
@@ -47,7 +42,7 @@ namespace ShitShovela.Utils
 
         internal static int? GetInt( string key )
         {
-            var value = GetString( key );
+            string? value = GetString( key );
             if ( value == null )
             {
                 return null;
@@ -86,12 +81,7 @@ namespace ShitShovela.Utils
                 seconds = GetInt( secondKey ) ?? seconds;
             }
 
-            if ( hours == 0 && minutes == 0 && seconds == 0 )
-            {
-                return null;
-            }
-
-            return new TimeSpan( hours: hours, minutes: minutes, seconds: seconds );
+            return hours == 0 && minutes == 0 && seconds == 0 ? null : new TimeSpan( hours: hours, minutes: minutes, seconds: seconds );
         }
     }
 }

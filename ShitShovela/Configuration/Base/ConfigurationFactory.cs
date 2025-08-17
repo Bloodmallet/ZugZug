@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-
+// hello
 namespace ShitShovela.Configuration.Base
 {
     /// <summary>
@@ -11,9 +11,9 @@ namespace ShitShovela.Configuration.Base
         protected string AddPrefix( string key )
         {
             string replacementCharacter = "_";
-            var builder = new StringBuilder();
+            StringBuilder builder = new();
 
-            builder.AppendJoin( "_", [
+            _ = builder.AppendJoin( "_", [
                 GetType().Namespace,
                 key
             ] );
@@ -44,9 +44,9 @@ namespace ShitShovela.Configuration.Base
 
         protected TimeSpan? GetTimeSpan( string? hourKey, string? minuteKey, string? secondKey )
         {
-            var prefixedHourKey = hourKey == null ? hourKey : AddPrefix( hourKey );
-            var prefixedMinuteKey = minuteKey == null ? minuteKey : AddPrefix( minuteKey );
-            var prefixedSecondKey = secondKey == null ? secondKey : AddPrefix( secondKey );
+            string? prefixedHourKey = hourKey == null ? hourKey : AddPrefix( hourKey );
+            string? prefixedMinuteKey = minuteKey == null ? minuteKey : AddPrefix( minuteKey );
+            string? prefixedSecondKey = secondKey == null ? secondKey : AddPrefix( secondKey );
 
             return Utils.EnvironmentAsTypeParser.GetTimeSpan( hourKey: prefixedHourKey, minuteKey: prefixedMinuteKey, secondKey: prefixedSecondKey );
         }
